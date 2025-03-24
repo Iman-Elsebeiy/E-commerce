@@ -1,0 +1,9 @@
+.active_route{
+  color: coral;
+  font-size: large;
+  font-weight: bold;
+  cursor: pointer;
+}
+.fa-solid{
+  font-size: 1.6rem;
+}
