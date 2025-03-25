@@ -1,1 +1,84 @@
-<p>product-details works!</p>
+<div class="container my-4">
+    <div class="row">
+        <!-- Product Image Column -->
+        <div class="row col-md-5">
+            <img [src]="product.thumbnail" [alt]="product.title" class="img-fluid rounded shadow">
+            <div class="col-md-4 col-md-4 col-lg-4" *ngFor="let image of product.images">
+              <img [src]="image" [alt]="product.title" class="img-fluid rounded shadow">
+            </div>
+        </div>
+
+
+
+        <!-- Product Details Column -->
+        <div class="col-md-7">
+            <h1 class="display-5">{{ product.title }}</h1>
+            <p class="lead text-muted">{{ product.description }}</p>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2 class="h4 text-primary mb-3">Price: ${{ product.price | currency:'EGP' }}</h2>
+
+                    <!-- Stock Status Badge -->
+                    <div class="mb-3">
+                        <span class="badge"
+                            [ngClass]="{'bg-danger': product.stock === 0, 'bg-success': product.stock > 0}">
+                            {{ product.stock === 0 ? 'Out of Stock' : 'In Stock' }}
+                        </span>
+                    </div>
+
+                    <!-- Product Specifications -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Brand:</strong> {{ product.brand }}</li>
+                                <li class="mb-2"><strong>SKU:</strong> {{ product.sku }}</li>
+                                <li class="mb-2"><strong>Weight:</strong> {{ product.weight }}g</li>
+                                <li class="mb-2"><strong>Dimensions:</strong> {{ product.dimensions.width }} x {{
+                                    product.dimensions.height }} x {{ product.dimensions.depth }} cm</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Minimum Order:</strong> {{ product.minimumOrderQuantity }}</li>
+                                <li class="mb-2"><strong>Barcode:</strong> {{ product.meta.barcode }}</li>
+                                <li class="mb-2"><img [src]="product.meta.qrCode" alt="QR Code" class="img-fluid"
+                                        style="max-width: 100px;"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping and Warranty Info -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="h5">Shipping & Returns</h3>
+                    <p class="mb-2"><i class="bi bi-truck"></i> {{ product.shippingInformation }}</p>
+                    <p class="mb-2"><i class="bi bi-shield-check"></i> {{ product.warrantyInformation }}</p>
+                    <p><i class="bi bi-arrow-return-left"></i> {{ product.returnPolicy }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <h2 class="h3 mb-3">Customer Reviews</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div *ngFor="let review of product.reviews" class="border-bottom pb-3 mb-3">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="h6">{{ review.reviewerName }}</h4>
+                            <div>
+                                <span class="badge bg-primary">{{ review.rating }}/5</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">{{ review.comment }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

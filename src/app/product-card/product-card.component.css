@@ -1,0 +1,17 @@
+/* Apply yellow color to full stars */
+.fa-star {
+  color: gold; /* Yellow color */
+}
+
+/* Apply yellow color to half stars */
+.fa-star-half-alt {
+  color: gold; /* Yellow color */
+}
+
+/* Apply gray color to empty stars */
+.fa-star-o {
+  color: lightgray; /* Gray color */
+}
+.btn-dark:hover{
+ background-color:tomato;
+}

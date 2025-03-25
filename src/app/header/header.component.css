@@ -1,8 +1,20 @@
+nav{
+ font-size: x-large;
+}
+.navbar-brand {
+  font-weight: bolder;
+  position: relative; /* Make sure it's positioned for shadow to apply */
+  display: inline-block; /* Ensure it behaves as an inline element */
+  font-size: 35px; /* Adjust the font size if needed */
+}
+
+.navbar-brand {
+  text-shadow: 2px 2px 5px coral; /* Add coral shadow */
+}
+
 .active_route{
   color: coral;
-  font-size: large;
-  font-weight: bold;
-  cursor: pointer;
+  font-weight:bolder;
 }
 .fa-solid{
   font-size: 1.6rem;
