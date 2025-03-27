@@ -6,6 +6,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { authGuard } from './guards/auth.guard';
 
 // Define the routes for the application
 
@@ -23,7 +24,8 @@ export const routes: Routes = [
   {
     path: 'details/:id',
     component: ProductDetailsComponent,
-    title: 'Product Details page'
+    title: 'Product Details page',
+    canActivate: [authGuard]
   },
   {
     path: 'cart',
